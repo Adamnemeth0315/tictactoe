@@ -2,24 +2,24 @@
 'use strict';
 
 const statusDisplay = document.querySelector('.game-status');
-
+const cells = Array.from(document.querySelectorAll('[data-cell-index]'));
+console.log(cells);
 const gameActive = true;
 const playerOne = 'X';
 const playerTwo = 'O';
+let circleTurn;
 
-const winningMessage = () => `The ${currentPlayer} has won!`;
+const winningMessage = () => `The ${playerOne} has won!`;
 
 const endMessage = () => `Game over.`
 
-const CurrentPlayerTurnMessage = () => `It's ${currentPlayer}'s turn!` ; 
+const CurrentPlayerTurnMessage = () => `It's ${playerOne}'s turn!` ; 
 
-let cells = [
+let matrix = [
     ['','',''],
     ['','',''],
     ['','',''],
 ];
-
-cells.forEach(cell => cell.addEventListener('click', handleCellClick));
 
 function handleCellClick(){
     for (let i = 0; i < cells.length; i++){
@@ -28,3 +28,4 @@ function handleCellClick(){
         };
     };
 };
+
