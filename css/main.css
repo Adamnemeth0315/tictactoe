@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #00ffff;
+}
+
+.main-container {
+    text-align: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 300px;
+    gap: 0;
+    margin: 30px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: solid 1px #444444;
+    background-color: #d2d2d2;
+    box-shadow: 1px 1px 1px #444444 ;
+    font-size: 60px;
+}
