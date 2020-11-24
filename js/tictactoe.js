@@ -10,9 +10,10 @@ let matrix = ['', '', '', '', '', '', '', '','',];
 const playerOne = 'X';
 const playerTwo = 'O';
 const players = [playerOne, playerTwo];
-let winner =[];
+let winnerConditions =[];
  
 let clickNumber = 0;
+const increaseCounter = () => clickNumber ++;
 
 startButton.addEventListener('click', function () {
     clickNumber = 0;
@@ -35,7 +36,7 @@ function game() {
                     cells[i].textContent = "O";
                     matrix[i] = "O";
                 }
-                clickNumber ++; 
+                increaseCounter(); 
                 if (clickNumber > 4) {
                     check();
                 }               
@@ -46,7 +47,7 @@ function game() {
 
 function check() {
 
-    winner = [
+    winnerConditions = [
         [matrix[0], matrix[1], matrix[2]],
         [matrix[3], matrix[4], matrix[5]],
         [matrix[6], matrix[7], matrix[8]],
@@ -57,15 +58,15 @@ function check() {
         [matrix[2], matrix[4], matrix[6]],
     ]; 
 
-    for (let i =0; i < winner.length; i++){
-        if (winner[i] === 'X'){
+    for (let i =0; i < winnerConditions.length; i++){
+        if (winnerConditions[i] === 'X'){
             statusDisplay.textContent = 'Az X játkos nyert';
-        } else if (winner[i] ==='O'){
+        } else if (winnerConditions[i] ==='O'){
             statusDisplay.textContent = 'Az O játkos nyert';
         } else if (clickNumber === 9) {
             statusDisplay.textContent = 'Game over!';
         } else {
-            clickNumber ++;
+            increaseCounter();
         }
     }        
 };
